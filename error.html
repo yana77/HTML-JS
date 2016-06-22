@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>error</title>
+</head>
+<body>
+<!--<form>
+    Name:<input type="text" id="text">
+    <input type="button" value="submit" onclick="btn()" >
+</form>-->
+<h1>测试数字是不是奇数</h1>
+<p>请输入数字：</p>
+<input type="text" id="txt">
+<input type="button" onclick="btn()" value="click">
+<p id="mess"></p>
+<script>
+    function btn(){
+        try{
+            var e = document.getElementById("txt").value;
+            if(e=="") throw "值为空";
+            if(e%2==0) throw "不是奇数";
+            if(isNaN(e)) throw "不是数字";
+        }catch (err){
+            var y = document.getElementById("mess");
+            y.innerHTML="error:"+err+".";
+        }
+    }
+
+/*    function btn(){
+        try {
+            var e = document.getElementById("text").value;
+            if (e == "") {
+                throw "Name 不能为空";
+            }
+        }catch (err){
+                alert(err);
+
+        }
+    }*/
+/*    function demo(){
+ try{
+ alert(str);
+ }catch(err){
+ alert(err);
+ }
+ }
+ demo();*/
+
+</script>
+</body>
+</html>

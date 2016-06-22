@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<p>i=10, j=20; i + j = ?</p>
+<p id="count"></p>
+<input type="button" value="button" onclick="btn()">
+
+<input type="button" value="button" onclick="btn1()">
+
+<p>Click on the button below to show that it is a week</p>
+<input type="button" value="button" onclick="button()">
+<p id="demo"></p>
+<input type="button" value="button1" onclick="button1()">
+<p id="demo1"></p>
+<input type="button" onclick="ForInDemo1()" value="button">
+
+<script>
+    var i=[1,2,4,5,6];
+    for(var j=0; j< i.length;j++){
+        document.write(i[j]+"、");
+    }
+    for(j in i){
+        document.write(i[j]+"<br/>");
+    }
+  var li;
+    var myArray = new Array();
+    myArray[0] = "Lily";
+    myArray[1] = "Tom";
+    myArray[2] = "Jame";
+    for(li in myArray){
+        document.write(myArray[li]+"<br>");
+    }
+
+    var ww =1;
+    do{
+        document.write("ww="+ww+"<br>");
+        ww++;
+    }
+    while(ww<10){
+
+    }
+    for(var qq=0; qq<10;qq++){
+
+    }
+
+    function ForInDemo1(){
+        var obj = {"a":"Athens","b":"alice","c":"kelly"}
+        var s = "";
+        for(var key in obj){
+            s += key+":"+obj[key];
+            s +="\n";
+        }
+        return (s);
+    }
+
+    function button(){
+        var x;
+        var day = new Date().getDay();
+        switch (day) {
+            case 0 :
+                x = "Today it's Sunday";
+                break;
+            case 1:
+                x = "Today it's Monday";
+                break;
+            case 2:
+                x = "Today it's Tuesday";
+                break;
+            case 3:
+                x = "Today it's Wednesday";
+                break;
+            case 4:
+                x = "Today it's Thursday";
+                break;
+            case 5:
+                x = "Today it's Friday";
+                break;
+            case 6:
+                x = "Today it's Saturday";
+                break;
+        }
+        document.getElementById("demo").innerHTML = x;
+    }
+
+    function button1(){
+        var y ;
+        var day =new Date().getDay();
+        switch (day){
+            case 0:
+                y = "Today it's Sunday";
+                break;
+            case 6:
+                y="Today it's Saturday";
+                break;
+            default :
+                y="Looking forward to the Weekend";
+                break;
+        }
+        document.getElementById("demo1").innerHTML=y;
+    }
+    var aa = new Date();
+    document.write(aa.getDate());
+
+    document.write("<br>");
+    function btn() {
+        var i = 10;
+        var j = 20;
+        document.getElementById("count").innerHTML =  i /= j;
+    }
+    function btn1(){
+        var a = 5;
+        var b ="5";
+        var m = a + b;
+        document.getElementById("count").innerHTML = m;
+    }
+    var c = 10;
+    var d = "10";
+    document.write(c===d);
+
+    var e = 20;
+    document.write(e>=5?"e大于等于20":"e小于20");
+
+    var f = 9;
+    if(f >= 10){
+        document.write("hello lo lij");
+    }else if(f<9){
+        document.write("jejow");
+    }else{
+        document.write("23234")
+    }
+    var g = 11;
+    switch (g){
+        case 11:
+            document.write("g=11!");
+            break;
+        case 2:
+            document.write("g=2...");
+            break;
+        default :
+            document.write("g不满足case");
+            break;
+    }
+    var day=new Date().getDay();
+    switch (day){
+
+    }
+</script>
+</body>
+</html>
