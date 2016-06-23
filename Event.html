@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event</title>
+    <script>
+        function demo1(){
+            alert('Error:Loading of the image was aborted');
+        }
+        function demo2(){
+            var x = document.getElementById("BName").value;
+            document.getElementById("BName").value = x.toUpperCase();
+            document.getElementById("BName").style.background="#FFCC33";
+        }
+        function demo3(){
+            var x = document.getElementById("CName");
+            document.getElementById("CName").value = x.value.toUpperCase();
+            x.style.background="#ccc";
+        }
+    </script>
+</head>
+<body>
+<section>
+    <h1>onabort事件会在图片加载被中断时发生</h1>
+    <img src="hello.gif" onabort="demo1()">
+</section>
+
+<section>
+    <h1>onblur事件会在对象失去焦点时候发生</h1>
+    <input type="text" id="BName" onblur="demo2()">
+</section>
+
+<section>
+    <h1>onChange事件会在域的内容改变时发生</h1>
+    <input type="text" id="CName" onChange="demo3()">
+</section>
+
+<section>
+    <h1>onclick 当鼠标单击时候发生/onmousedown事件会在鼠标键按下时发生</h1>
+    Files1: <input type="text" id="files1" value="onclick">
+    Files2: <input type="text" id="files2">
+    <input type="button" onclick="document.getElementById('files2').value=document.getElementById('files1').value" value="please click me">
+    <br><br>
+    onmousedown: <input type="text" onmousedown="document.getElementById('files3').value= document.getElementById('files1').value" id="files3">
+</section>
+
+</body>
+</html>
