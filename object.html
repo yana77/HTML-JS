@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>String对象</title>
+</head>
+<body>
+<script>
+    /*String 属性*/
+
+    /*constructor 对创建该对象的函数的引用*/
+    var obj1 = new String();
+    if(obj1.constructor == Array){
+        console.log("This is an Array");
+    }
+    if(obj1.constructor == String){
+        console.log("This is a String");
+    }
+    if(obj1.constructor == Date){
+        console.log("This is a Date");
+    }
+    function food(name,kilo,price){
+        this.name =name;
+        this.kilo = kilo;
+        this.price=price;
+    }
+    var s = new food("chicken","15kg","$20");
+    console.log(s.constructor);
+
+    /*length 字符串的长度*/
+    var obj2 = "Today is fine day";
+    console.log(obj2.length);
+
+    /*prototype属性允许向对象添加属性和方法  object.prototype.name = value*/
+    function employee(name,age,sex){
+        this.name =name;
+        this.age = age;
+        this.sex = sex;
+    }
+    var s = new employee("Tom","30","boy");
+    employee.prototype.salary = null;
+    s.salary = 1000;
+    console.log(s.salary);
+    console.log(s);
+
+    /*String 对象属性*/
+    var  txt = "Today is fine day",
+         txt1 ="!!!",
+         txt2 ="!!!",
+         txt3 = "what what what",
+         txt4 = "1 s 3 f 5";
+    /*anchor()方法用于创建HTML锚*/
+   document.write("<p>anchor:"+txt.anchor('myAnchor')+"</p>");  //在Console可以看到<a name="myAnchor">Today is fine day</a>
+
+    /*big()方法用于把字符串显示为大号字体*/
+    document.write("<p>big:"+txt.big()+"</p>");
+
+    /*blink()方法用于闪动的字符串*/
+    document.write("<p>blink: "+txt.blink()+"(does not work in IE,Chrome,or Safari)</p>");
+    /*bold() 方法用于把字符串显示为粗体*/
+    document.write("<p>bold: "+txt.bold()+"</p>")
+    /*charAt()可返回指定位置的字符*/
+    /*charCodeAt()方法可以返回指定位置的Unicode编码。这个返回值是0 - 65535之间整数*/
+    /*charAt()与charCodeAt()区别，前者返回指定够位置编码，而后者返回的是字符子串*/
+    /*注：字符串中第一个字符的下标是0.如果index是负数，或大于等于字符串长度，则charCodeAt()返回NaN*/
+    document.write("<p>charAt: "+txt.charAt(2)+"</p>");
+    document.write("<p>charCodeAt: "+txt.charCodeAt(5)+"</p>")
+    /*concat()方法用于连接两个或多个字符串*/
+    document.write("<p>concat: "+txt.concat(txt1,txt2)+"</p>")
+    /*fixed()方法用于把字符串显示为打字机字体*/
+    document.write("<p>fixed: "+txt.fixed()+"</p>");
+    /*fontcolor()方法用于按照指定的颜色来显示字符串*/
+    document.write("<p>fontcolor: "+txt.fontcolor("green")+"</p>");
+    /*fontsize()方法用于按照指定的尺寸来显示字符串*/
+    document.write("<p>fontsize: "+txt.fontsize(18)+"</p>");
+    /*fromCharCode()可接受一个指定的Unicode值，然后返回一个字符串*/
+    /*语法：String.fromCharCode(numX,numX,...,numN)*/
+    document.write("fromCharCode: "+String.fromCharCode(65,108,105,99,101));
+    /*indexOf()方法可返回某个指定的字符串在字符串中首次出现的位置*/
+    /*lastIndexOf()方法可返回一个指定字符串最后出现的位置，在一个字符串中指定从后向前搜索*/
+    /*语法：stringObject.indexOf(searchvalue,fromindex)  fromindex规定开始检索的位置*/
+    /*对大小写敏感，如果要检索的字符串没有出现，则返回-1*/
+    document.write("<p>indexOf: "+txt3.indexOf(" ")+"</p>");
+    document.write("<p>indexOf: "+txt3.indexOf("what",6)+"</p>");
+    document.write("<p>lastIndexOf: "+txt3.lastIndexOf("what")+"</p>");
+    document.write("<p>lastIndexOf: "+txt3.lastIndexOf("what",5)+"</p>");
+    /*italics()方法用于字符串显示为斜体*/
+    document.write("<p>italics: "+ txt.italics()+"</p>");
+    /*link()方法用于把字符串显示为超链接*/
+    document.write("<p>link()"+txt.link("http://baidu.com")+"</p>");
+    /*y用本地特定的顺序比较两个字符串*/
+    /*stringObject.localCompare(target)  stringObject小于target返回小于0的数，如果大于，返回大于0的数，等于返回0*/
+    document.write("<p>localeCompare:"+txt.localeCompare(txt2)+"</p>")
+    /*match()方法可在字符串内检索指定的值，或找到一个或多个正则表达式的匹配*/
+    /*stringObject.match(searchvalue) stringObject.match(regexp)*/
+    document.write("<p>match(searchvalue): "+txt.match("fine")+"</p>");
+    document.write("<p>match(searchvalue): "+txt.match("hello")+"</p>");
+    document.write("<p>match(searchvalue): "+txt.match("e")+"</p>");
+    document.write("<p>match(regexp)"+txt4.match(/\d+/g)+"</p>"); //regexp 具有g，则match()方法将执行全局搜索，+表示有多个
+
+</script>
+</body>
+</html>

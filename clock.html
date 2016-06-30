@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>clock</title>
+</head>
+<body onload="setTimes()">
+<div id="clock"></div>
+<script>
+    function setTimes(){
+        var today = new Date();
+        var h = today.getHours(),
+            m = today.getMinutes(),
+            s = today.getSeconds();
+        m = checkTimes(m);
+        s = checkTimes(s);
+        document.getElementById("clock").innerHTML = h+":"+m+":"+s;
+        t = setTimeout(function(){
+            setTimes();
+        },500)
+    }
+    function checkTimes(i){
+        if(i<10){
+            i = "0"+i;
+        }
+        return i;
+    }
+</script>
+</body>
+</html>
