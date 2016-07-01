@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array</title>
+</head>
+<body>
+<script>
+    /*JavaScript Array对象*/
+
+    /*constructor属性返回对创建对象的函数的引用*/
+    var txt1 = new Array();
+    if(txt1.constructor == Array){
+        document.write("<p>constructor: This is an Array");
+    }
+    if(txt1.constructor == String){
+        document.write("<p>constructor: This is a String");
+    }
+    if(txt1.constructor == Date){
+        document.write("<p>constructor: This is a Date");
+    }
+    function flower(name,color){
+        this.name = name;
+        this.color = color;
+    }
+    var rose = new flower("rose","red");
+    document.write("<p>"+rose.constructor+"</p>");
+
+    /*length属性可设置或返回数组中的元素数目*/
+    var arr = new Array(3);
+    arr[0] = "hello"
+    arr[1] = "world"
+    arr[2] = "what"
+    document.write("<p>length属性："+arr.length+"</p>")
+    arr.length = 7
+    document.write(("<p>改变length长度："+arr.length+"</p>"))
+
+    /*prototype属性可以向对象添加属性*/
+    function flower1(name,color,size){
+        this.name = name;
+        this.color = color;
+        this.size = size;
+    }
+    var s = new flower1("rose","red","big");
+    flower1.prototype.price = null;
+    s.price="$15";
+    document.write("<p>prototype方法添加price："+s.price+"</p>")
+    console.log(s);
+
+    /*Array对象方法*/
+
+    var a = [1,2,3,8,5];
+    var arr1 = new Array(4);
+    arr1[0] = "a"
+    arr1[1] = "b"
+    arr1[2] = "c"
+    arr1[3] = "1"
+    var arr2 = new Array(4);
+    arr2[0] = "d"
+    arr2[1] = "e"
+    arr2[2] = "f"
+    arr2[3] = "g"
+    var arr3 =new Array(5);
+    arr3[0] = "Tom"
+    arr3[1] = "Lily"
+    arr3[2] = "Jim"
+    arr3[3] = "Jane"
+    arr3[4] = "Alice"
+
+    /*concat()方法用于连接两个或多个数组，该方法不会改变现有的数组，而仅仅会返回被连接数组的一个副本*/
+    /*arrayObject.concat(arrayX,arrayX,...,arrayX)*/
+    document.write("<p>concat()连接两个或多个数组："+ a.concat(8,9)+"</p>");
+    document.write("<p>concat()连接两个数组："+arr1.concat(arr2)+"</p>")
+
+    /*join()方法用于把数组中的所有元素放入一个字符串，元素是通过指定的分隔符进行分隔的*/
+    document.write("<p>join()方法把元素放在一个字符串："+arr1.join()+"</p>")
+    document.write("<p>join()方法把元素放在一个字符串："+arr1.join("..")+"</p>")
+
+    /*pop()方法用于删除并返回数组的最后一个元素*/
+    /*arrayObject.pop()*/
+    document.write("<p>pop()方法使用前："+arr2+"</p>");
+    document.write("<p>pop()方法使用："+arr2.pop()+"</p>") //pop()方法删除arrayObject的最后一个元素，把长度减1，并且返回它删除的元素的值
+    document.write("<p>pop()方法使用后："+arr2+"</p>")
+
+    /*push()方法可向数组的末尾加一个或多个元素，并返回新的长度*/
+    document.write("<p>push()方法使用前："+arr2+"</p>");
+    document.write("<p>push()方法使用："+arr2.push("g")+"</p>");
+    document.write("<p>push()方法使用后："+arr2+"</p>");
+
+    /*reverse()方法用于颠倒数组元素的顺序*/
+    document.write("<p>reverse()方法用于颠倒元素的顺序"+arr1.reverse()+"</p>")
+
+    /*shift()方法用于把数组的第一个元素删除，并返回第一个元素的值*/
+    document.write("<p>shift()使用前："+arr2+"</p>")
+    document.write("<p>shift()使用："+arr2.shift()+"</p>")
+    document.write("<p>shift()使用后："+arr2+"</p>")
+
+    /*unshift()方法可向数组的开头添加一个或更多元素，并返回新的长度*/
+    document.write("<p>unshift()使用前："+arr2+"</p>")
+    document.write("<p>unshift()使用："+arr2.unshift("dsf")+"</p>")
+    document.write("<p>unshift()使用后："+arr2+"</p>")
+
+    /*slice()方法可从已有的数组中返回选定的元素*/
+    /*arrayObject.slice(start,stop)*/
+    document.write("<p>slice() start=1："+arr1+"</p>")
+    document.write("<p>slice() start=2："+arr1.slice(2)+"</p>")
+    document.write("<p>slice() start=1,stop:2："+arr1.slice(1,2)+"</p>")
+    document.write("<p>slice() start=1,stop:3："+arr1.slice(1,3)+"</p>")
+
+    /*sort()方法用于对数组元素进行排序*/
+    document.write("<p>sort()对数组进行排序："+arr1+"</p>");
+    document.write("<p>sort()对数组进行排序："+arr1.sort()+"</p>"); //按字母顺序
+    document.write("<p>sort()对数组进行排序："+a.sort(sortNumber)+"</p>"); //按大小
+
+    function sortNumber(a,b)
+    {
+        return a - b
+    }
+
+    /*splice()方法从数组中添加/删除项目，然后返回被删除的项目*/
+    /*arrayObject.splice(index,howmany,item1,...,itemX)*/
+    document.write("<p>splice()删除/添加前："+arr3+"</p>")
+    document.write("<p>splice()删除/添加前index=2,howmary=3："+arr3.splice(0,2,"hi")+"</p>")
+    document.write("<p>splice()删除/添加前index=1,howmary=0："+arr3.splice(1,0,"hi")+"</p>")
+    document.write("<p>splice()删除/添加前index=1,howmary=0："+arr3+"</p>")
+
+    /*toSource()方法表示对象的源代码*/
+    /*toSource一般在后台调用，并不显示地出现在代码中*/
+
+    /*toString()方法可以把数组转换为字符串，并返回结果*/
+    /*toLocaleString()方法 把数组转换为本地的字符串*/
+    document.write("<p>toString()与没有参数的join()方法返回的字符串相同："+arr1.toString()+"</p>")
+    document.write("<p>toLocaleString()："+arr1.toLocaleString()+"</p>")
+
+    /*valueOf()方法返回Array对象的原始值*/
+    /*通常咋是后台自动调用，不显现代码中*/
+</script>
+</body>
+</html>
