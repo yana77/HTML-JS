@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Date</title>
+</head>
+<body>
+<script>
+    /*Date对象属性*/
+    /*construction属性返回创建对象的Date函数引用*/
+    var txt = new Date();
+    if(txt.constructor == Array){
+        document.write("<p>This is an Array");
+    }
+    if(txt.constructor == Date){
+        document.write("<p>This is a Date");
+    }
+    if(txt.constructor == String){
+        document.write("<p>This is a String");
+    }
+    /*prototype属性能向对象添加属性和方法*/
+    function flower(name,color){
+        this.name = name ;
+        this.color = color;
+    }
+    var rose = new flower("rose","red");
+    flower.prototype.price = null;
+    rose.price ="$20";
+    document.write("<p>prototype()添加新的属性："+rose.price+"</p>")
+    console.log(rose);
+</script>
+</body>
+</html>
