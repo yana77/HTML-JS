@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>JavaScript Date</title>
 </head>
-<body>
+<body onload="setTimes()">
 <script>
     /*Date对象属性*/
     /*construction属性返回创建对象的Date函数引用*/
@@ -28,6 +28,69 @@
     rose.price ="$20";
     document.write("<p>prototype()添加新的属性："+rose.price+"</p>")
     console.log(rose);
+
+    /*Date 对象属性*/
+    var d = new Date();
+    var birthday = new Date("May 30,1991"); //Date(month day,year time)
+    var someday = new Date();
+    var weekday = new Array(7);
+    weekday[0] = "Sunday"
+    weekday[1] = "Monday"
+    weekday[2] = "Tuesday"
+    weekday[3] = "Wednesday"
+    weekday[4] = "Thursday"
+    weekday[5] = "Friday"
+    weekday[6] = "Saturday"
+    var month = new Array(12)
+    month[0] = "January"
+    month[1] = "February"
+    month[2] = "March"
+    month[3] = "April"
+    month[4] = "May"
+    month[5] = "June"
+    month[6] = "July"
+    month[7] = "August"
+    month[8] = "September"
+    month[9] = "October"
+    month[10] = "November"
+    month[11] = "December"
+    var str ="getHours()/getMinutes()/getSeconds()/getMilliseconds()的现实集合"
+    var minutes = 1000*60;
+    var hour = minutes * 60;
+    var day = hour * 24;
+    var year = day *365;
+
+    /*Date()方法可以返回当天的日期和时间*/
+    document.write("<p>Date()方法可以放回当天的日期和时间："+Date()+"</p>");
+
+    /*getDate()方法可返回某月的某一天*/
+    /*dateObject.getDate() dateObject所指的月份中的某一天，返回值 1~31*/
+    document.write("<p>getDate()方法可返回某月的某一天："+ d.getDate()+"</p>");
+    document.write("<p>getDate()预设Date值返回："+birthday.getDate()+"</p>");
+
+    /*getDay()方法可返表示星期的某一天的数字*/
+    document.write("<p>getDate()方法可以返回某个星期的某一天："+ d.getDay()+"</p>");
+    document.write("<p>getDate()方法先定义数组的：This is "+weekday[d.getDate()]+"</p>");
+
+    /*getMonth()方法可返回表示月份的数字*/
+    document.write("<p>getMonth()方法可返回表示某月的数字："+ d.getMonth()+"<p>")
+    document.write("<p>getMonth()方法返回预定义的数字: This is "+month[d.getMonth()]+"</p>")
+
+    /*getFullYear()方法可返回一个表示年份的4位数字*/
+    document.write("<p>getFullYear()方法可返回年份："+ d.getFullYear()+"</p>")
+    document.write("<p>getFullYear()方法可返回生日年份："+ birthday.getFullYear()+"</p>")
+
+    /*getYear()方法可返回表示年份的两位数或四位数(一般使用getFullYear()方法替代)*/
+    /*对于介于 1900 与 1999 之间的年份，getYear() 方法仅返回两位数字。对于 1900 之前或 1999 之后的年份，则返回 4 位数字*/
+    document.write("<p>getYear()返回表示年份的两位数或四位数："+ d.getYear()+"</p>")
+    document.write("<p>getYear()返回表示年份的两位数或四位数："+ birthday.getYear()+"</p>")
+
+    /*getHours()/getMinutes()/getSeconds()/getMilliseconds()*/
+    document.write("<p>"+str.link("clock.html")+"</p>")
+
+    /*getTime()方法可返回距离1970年1月1日之间的毫秒数*/
+    document.write("<p>"+ d.getTime()+" milliseconds since 1970/1/1</p>")
+    document.write("<p>1970/1/1距离今天过了多少年："+ (d.getTime())/year+"</p>")
 </script>
 </body>
 </html>
