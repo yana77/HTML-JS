@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>实践题 - 选项卡</title>
+    <style type="text/css">
+        /* CSS样式制作 */
+        *{
+            margin: 0; padding: 0; font-family: Verdana, Arial, Helvetica, sans-serif; font-size:14px;
+        }
+        #tabs{
+            background: #ffffff; padding: 50px; width: 300px; height: 200px;
+        }
+        #tabs ul{
+            border-bottom: 2px saddlebrown solid; list-style: none;text-align: center; height: 30px;
+        }
+        #tabs ul li{
+            float: left; width:80px; border: 1px solid darkgrey;border-bottom: none; height: 20px; padding: 4px; margin:0 5px 0 2px;  cursor: pointer;
+        }
+        #tabs ul li.on{
+            border-top: 2px saddlebrown solid; border-bottom: 2px white solid;
+        }
+        #tabs div{
+            line-height: 24px; padding: 10px;border: 1px steelblue solid; border-top: none;
+        }
+        .hide{
+            display: none;
+        }
+
+    </style>
+    <script type="text/javascript">
+
+        // JS实现选项卡切换
+        window.onload = function() {
+            var oTabs = document.getElementById("tabs");
+            var oUl = oTabs.getElementsByTagName("ul")[0];
+            var oLi = oUl.getElementsByTagName("li");
+            var oDiv = oTabs.getElementsByTagName("div");
+            var len = oLi.length;
+            for(var i=0;i<len;i++){
+                oLi[i].index = i;
+                oLi[i].onclick = function(){
+                    for(var n=0; n<len ; n++){
+                        oLi[n].className="";
+                        oDiv[n].className="hide";
+                    }
+                    this.className="on";
+                    oDiv[this.index].className="";
+                }
+            }
+        }
+
+    </script>
+
+</head>
+<body>
+<!-- HTML页面布局 -->
+<div id="tabs">
+    <ul>
+        <li class="on">Monday</li>
+        <li>Tuesday</li>
+        <li>Wednesday</li>
+    </ul>
+    <div>
+        Life is always so we covered all over with cuts and bruises,
+        but later, the injured area will become the strong place.
+    </div>
+    <div class="hide">
+        Books are the stepping stones to human progress.
+    </div>
+    <div class="hide">
+        Always bear in mind that your own resolution to success is more important than any one thing .
+
+    </div>
+</div>
+
+
+</body>
+</html>
